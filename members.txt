@@ -1,0 +1,7 @@
+Brian Nieves: Set up web server and Mysql server, as well as contributed to E/R diagram and wrote the create.sql file used to set up the database.
+
+Sherry Feng: Wrote project description and data collection parts of analysis. Created hard coded website mockup with project cards and submission form for people to submit their own project ideas. Researched how to use Node.js to translate MySQL into HTML data for the real web display. 
+
+Elizabeth Chiu: Helped design the E/R diagram and drew it up. Wrote the relational schema and the assumptions about the data
+
+Jeffrey Li: Wrote the SQL queries, created fake data and wrote the load.sql.
