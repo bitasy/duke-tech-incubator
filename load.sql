@@ -1,4 +1,4 @@
--- FAKE DATA
+ -- FAKE DATA
 
 INSERT INTO Person(netid, name, email) VALUES
   ('jql3', 'Jeffrey Li', 'jeffrey.q.li@duke.edu'),
