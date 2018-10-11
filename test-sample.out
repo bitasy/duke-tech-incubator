@@ -1,0 +1,14 @@
+pid	founder	name	status	description
+1	ban20	Fake News Detector	inactive	Detects fake news!
+2	ban20	Database Project	active	Our 316 project
+3	jql3	Talk like a Kiwi	active	Learn to speak like a kiwi
+pid	founder	name	status	description
+2	ban20	Database Project	active	Our 316 project
+3	jql3	Talk like a Kiwi	active	Learn to speak like a kiwi
+pid	founder	name	status	description	professor
+3	jql3	Talk like a Kiwi	active	Learn to speak like a kiwi	jk123
+name	description	name
+Fake News Detector	Detects fake news!	Brian Nieves
+Database Project	Our 316 project	Brian Nieves
+time	location
+19:00:00	Edge Project Room 1
