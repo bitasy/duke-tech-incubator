@@ -1,0 +1,77 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <!-- stop the web browser from ever caching this page or its images 
+    <meta http-equiv="Cache-Control" content="no-cache" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />-->
+    <!-- support for this page -->
+    <link type="text/css" rel="stylesheet" href="style.css">
+    <link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <title>Duke Tech Incubator</title>
+</head>
+<body>
+    <h1 id="bonk-header">All Projects</h1>
+        <div class="divider">
+        <h2 class="h2-header">Current Projects</h2>
+            <p id="description">This is a list of all active projects under the Duke Tech Incubator and their associated descriptions, leaders, mentors, and meeting dates. Click the buttons below to filter certain cards!</p>
+            <div class="buttons">
+                <button type="button" class="btn btn-danger" onclick="showAll()">Show All</button>
+                <button type="button" class="btn btn-primary" onclick="hide1()">Professor 1</button>
+                <button type="button" class="btn btn-warning" onclick="hide2()">Professor 2</button>
+                <button type="button" class="btn btn-success" onclick="hide3()">Professor 3</button>
+            </div>
+            <div class="row" id="all-projects">
+                <div class="col-4 project-card" id="fake-news">
+                    <h3>Fake News Detector</h3>
+                    <p> Using sentiment analysis to check for partisan language</p>
+                    <p> Led by Brian </p>
+                    <p> Mentored by Professor 1 </p>
+                    <p> Meetings on Wednesday at 4:15 in the Co-Lab</p>
+                </div>
+                <div class="col-4 project-card" id="database">
+                    <h3>Database Project</h3>
+                    <p>Create a database of projects</p>
+                    <p> Led by Brian </p>
+                    <p> Mentored by Professor 2 </p>
+                    <p> Meetings on Wednesday at 4:15 in the Co-Lab</p>
+                </div>
+                <div class="col-4 project-card" id="jiffrey">
+                    <h3>Talk like a Kiwi</h3>
+                    <p>Using NLP to change your sentences to sound like they have a New Zealand accent</p>
+                    <p> Led by Jeffrey </p>
+                    <p> Mentored by Professor 3 </p>
+                    <p> Meetings on Wednesday at 4:15 in the Co-Lab</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="divider">
+        <h2 class="h2-header">Add a Project</h2>
+            <p id="description"> Have a project idea you'd like someone to work on? Fill it out here!</p>
+            <form id="project-submit">
+                <div class="form-group">
+                    <label for="fullName">Name</label>
+                    <input type="text" class="form-control" id="fullName" placeholder="Full Name">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email address</label>
+                    <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
+                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                </div>
+                <div class="form-group">
+                    <label for="projectName">Project Name</label>
+                    <input type="text" class="form-control" id="projectName" placeholder="Project Name">
+                </div>
+                <div class="form-group">
+                    <label for="description">Project Description</label>
+                    <textarea class="form-control" id="description" rows="3" placeholder="Describe your project in a few short lines"></textarea>
+                </div>
+                
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    <script src="script.js" async></script>
+</body>
+</html>

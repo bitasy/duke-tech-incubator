@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css?family=Cutive|Scope+One');
+
+#start{
+	margin-left: 30px;
+}
+
+#bonk-header{
+	color: #347B98;
+}
+.h2-header{
+	color: #66B032;
+}
+body{
+	padding: 20px;
+}
+h1{
+	text-align: center;
+	color:#FC7307;
+	font-family: 'Cutive', sans-serif;
+}
+
+h2{
+	color: #341C09;
+	font-family: 'Scope One', serif;
+}
+
+h3{
+	size: 12;
+}
+p{
+	color:#341C09;
+	font-family: 'Scope One', serif;
+}
+
+#project-submit{
+	border-width: 1px;
+	border-style: solid;
+	padding: 10px;
+}
+.project-card{
+	border-width: 1px;
+	border-style: solid;
+	padding: 10px;
+}
+
+.divider{
+	padding: 5px;
+}
+
+.buttons{
+	padding-bottom: 10px;
+}
