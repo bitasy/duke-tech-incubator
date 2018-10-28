@@ -82,3 +82,10 @@ create table Order_Item(
 	check (quantity >= 0),
 	price decimal(5,2)
 );
+
+create table Member(
+	pid int not null,
+	foreign key (pid) references Project(pid),
+	netid varchar(8) not null,
+	foreign key (netid) references Student(netid)
+);
