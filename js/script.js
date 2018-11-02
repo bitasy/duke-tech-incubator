@@ -24,7 +24,18 @@ var data = [
             "mentor": "Jun Yang"
         },
     ];
+var mysql = require('mysql');
 
+var con = mysql.createConnection({
+  host: "localhost",
+  user: "dti",
+  password:""
+});
+
+con.connect(function(err) {
+  if (err) throw err;
+  console.log("Connected!");
+});
 function showAll(){
     document.getElementById("fake-news").style.display= 'block';
     document.getElementById("database").style.display= 'block';
