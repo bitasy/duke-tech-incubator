@@ -12,7 +12,11 @@
     <title>Duke Tech Incubator</title>
 </head>
 <body>
-    <h1 id="bonk-header">All Projects</h1>
+	<div class="topnav"> 
+		<a class="active" href="#home">Home</a>
+		<a href="addproject.html">Add Project</a>
+	</div>
+	<h1 id="bonk-header">Duke Tech Incubator</h1>
         <div class="divider">
         <h2 class="h2-header">Current Projects</h2>
             <p id="description">This is a list of all active projects under the Duke Tech Incubator and their associated descriptions, leaders, mentors, and meeting dates. Click the buttons below to filter certain cards!</p>
@@ -45,32 +49,6 @@
                     <p> Meetings on Wednesday at 4:15 in the Co-Lab</p>
                 </div>
             </div>
-        </div>
-
-        <div class="divider">
-        <h2 class="h2-header">Add a Project</h2>
-            <p id="description"> Have a project idea you'd like someone to work on? Fill it out here!</p>
-            <form id="project-submit">
-                <div class="form-group">
-                    <label for="fullName">Name</label>
-                    <input type="text" class="form-control" id="fullName" placeholder="Full Name">
-                </div>
-                <div class="form-group">
-                    <label for="email">Email address</label>
-                    <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
-                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-                </div>
-                <div class="form-group">
-                    <label for="projectName">Project Name</label>
-                    <input type="text" class="form-control" id="projectName" placeholder="Project Name">
-                </div>
-                <div class="form-group">
-                    <label for="description">Project Description</label>
-                    <textarea class="form-control" id="description" rows="3" placeholder="Describe your project in a few short lines"></textarea>
-                </div>
-                
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
         </div>
     <script src="script.js" async></script>
 </body>
