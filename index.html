@@ -2,54 +2,73 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <!-- stop the web browser from ever caching this page or its images 
+    <!-- stop the web browser from ever caching this page or its images
     <meta http-equiv="Cache-Control" content="no-cache" />
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />-->
     <!-- support for this page -->
-    <link type="text/css" rel="stylesheet" href="style.css">
+    <link type="text/css" rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="table.css">
     <link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.in.js"></script>
+    <script src="//cdn.hs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <title>Duke Tech Incubator</title>
 </head>
 <body>
-	<div class="topnav"> 
-		<a class="active" href="#home">Home</a>
-		<a href="addproject.html">Add Project</a>
-	</div>
-	<h1 id="bonk-header">Duke Tech Incubator</h1>
-        <div class="divider">
-        <h2 class="h2-header">Current Projects</h2>
-            <p id="description">This is a list of all active projects under the Duke Tech Incubator and their associated descriptions, leaders, mentors, and meeting dates. Click the buttons below to filter certain cards!</p>
-            <div class="buttons">
-                <button type="button" class="btn btn-danger" onclick="showAll()">Show All</button>
-                <button type="button" class="btn btn-primary" onclick="hide1()">Professor 1</button>
-                <button type="button" class="btn btn-warning" onclick="hide2()">Professor 2</button>
-                <button type="button" class="btn btn-success" onclick="hide3()">Professor 3</button>
-            </div>
-            <div class="row" id="all-projects">
-                <div class="col-4 project-card" id="fake-news">
-                    <h3>Fake News Detector</h3>
-                    <p> Using sentiment analysis to check for partisan language</p>
-                    <p> Led by Brian </p>
-                    <p> Mentored by Professor 1 </p>
-                    <p> Meetings on Wednesday at 4:15 in the Co-Lab</p>
-                </div>
-                <div class="col-4 project-card" id="database">
-                    <h3>Database Project</h3>
-                    <p>Create a database of projects</p>
-                    <p> Led by Brian </p>
-                    <p> Mentored by Professor 2 </p>
-                    <p> Meetings on Wednesday at 4:15 in the Co-Lab</p>
-                </div>
-                <div class="col-4 project-card" id="jiffrey">
-                    <h3>Talk like a Kiwi</h3>
-                    <p>Using NLP to change your sentences to sound like they have a New Zealand accent</p>
-                    <p> Led by Jeffrey </p>
-                    <p> Mentored by Professor 3 </p>
-                    <p> Meetings on Wednesday at 4:15 in the Co-Lab</p>
-                </div>
-            </div>
-        </div>
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<a class="navbar-brand" href="#" height="40">Duke Tech Incubator</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar1" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbar1">
+			<ul class="navbar-nav m1-auto">
+				<li class="nav-item active">
+					<a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="addproject.html"> Add Project </a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+    <h1 id="bonk-header">Duke Tech Incubator</h1>
+    <div class="search">
+	    <input type="text" name="search" placeholder="Search...">
+    </div>
+
+
+    <h3 align="center">Projects</h3>
+    <div id="constrainer2">
+        <table>
+            <thead>
+              <th>Name</th><th>Description</th>
+            </thead>
+            <tbody>
+              <tr><td>Vooga Salad</td><td>An awesome salad made of vooga that you can play with</td></tr>
+              <tr><td>Slogo</td><td>Programme a turtle to run around and stuff</td></tr>
+              <tr><td>Turtle Jump</td><td>jump the turtle to the top of the screen to win</td></tr>
+              <tr><td>Cell Society</td><td>cell organised into a grid that interact with each other</td></tr>
+              <tr><td>Team Ninja</td><td>Ninjas assembled into a team formation. Join this project if you want to be a ninja or anything else</td></tr>
+              <tr><td>Vooga Salad</td><td>An awesome salad made of vooga that you can play with</td></tr>
+              <tr><td>Slogo</td><td>Programme a turtle to run around and stuff</td></tr>
+              <tr><td>Turtle Jump</td><td>jump the turtle to the top of the screen to win</td></tr>
+              <tr><td>Brick Breaker</td><td>a project involving breaking a lot of bricks and smashing the walls</td></tr>
+              <tr><td>Cell Society</td><td>cell organised into a grid that interact with each other</td></tr>
+              <tr><td>Brick Breaker</td><td>a project involving breaking a lot of bricks and smashing the walls</td></tr>
+              <tr><td>Cell Society</td><td>cell organised into a grid that interact with each other</td></tr>
+              <tr><td>Team Ninja</td><td>Ninjas assembled into a team formation. Join this project if you want to be a ninja or anything else</td></tr>
+              <tr><td>Vooga Salad</td><td>An awesome salad made of vooga that you can play with</td></tr>
+              <tr><td>Slogo</td><td>Programme a turtle to run around and stuff</td></tr>
+              <tr><td>Turtle Jump</td><td>jump the turtle to the top of the screen to win</td></tr>
+              <tr><td>Brick Breaker</td><td>a project involving breaking a lot of bricks and smashing the walls</td></tr>
+              <tr><td>Cell Society</td><td>cell organised into a grid that interact with each other</td></tr>
+              <tr><td>Team Ninja</td><td>Ninjas assembled into a team formation. Join this project if you want to be a ninja or anything else</td></tr>
+            </tbody>
+       </table>
+    </div>
+
+
     <script src="script.js" async></script>
 </body>
 </html>
