@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Cutive|Scope+One');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
 
 #start{
 	margin-left: 30px;
@@ -13,6 +14,7 @@
 body{
 	padding: 20px;
 }
+
 h1{
 	text-align: center;
 	color:#FC7307;
@@ -49,4 +51,32 @@ p{
 
 .buttons{
 	padding-bottom: 10px;
+}
+
+.topnav{
+	overflow: hidden;
+	background-color: #333;
+}
+
+.topnav a {
+	float: left;
+	text-align: center;
+	padding: 14px 16px:
+	text-decoration: none;
+	font-size: 17px;
+}
+
+.topnav a:hover {
+	background-color: #ddd;
+	color: black;
+}
+
+.topnav a.active {
+	background-color: #4CAF50;
+	color: white;
+}
+
+.search {
+	width: 100%;
+	text-align: center;
 }
