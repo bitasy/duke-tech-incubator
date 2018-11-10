@@ -1,2 +1,3 @@
-duke-tech-incubator/*
 node_modules/*
+.idea
+*.iml
