@@ -1,6 +1,10 @@
 <h1>{{founder}}</h1>
 <br />
-
-{{#each results}}
-    {{this.name}}: {{this.description}}<br />
-{{/each}}
+<table style="border: 1px solid black">
+    {{#each results}}
+        <tr>
+            <td>{{this.name}}</td>
+            <td>{{this.description}}</td>
+        </tr>
+    {{/each}}
+</table>
