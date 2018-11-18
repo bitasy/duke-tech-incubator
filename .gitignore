@@ -1,2 +1,4 @@
-duke-tech-incubator/*
 node_modules/*
+nohup.out
+.idea
+*.iml
