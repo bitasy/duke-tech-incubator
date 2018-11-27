@@ -27,7 +27,6 @@ app.use('/users', usersRouter);
 app.use('/project', projectRouter);
 
 app.use(express.static('public'));
-app.use(express.static('views')); //THIS MUST BE CHANGED ONCE WE CREATE PROPER HBS FILES
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

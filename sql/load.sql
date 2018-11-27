@@ -1,17 +1,21 @@
- -- FAKE DATA
-
 INSERT INTO Person(netid, name, email) VALUES
   ('jql3', 'Jeffrey Li', 'jeffrey.q.li@duke.edu'),
   ('sf197', 'Sherry Feng', 'sf197@duke.edu'),
   ('ban20', 'Brian Nieves', 'ban20@duke.edu'),
   ('emc44', 'Elizabeth Chiu', 'emc44@duke.edu'),
-  ('jk123', 'Jun Kang', 'jk123@duke.edu'),
-  ('op69', 'Other Professor', 'other@duke.edu'),
+  ('junyang', 'Jun Yang', 'junyang@duke.edu'),
   ('gtm7', 'Griffin Malm', 'griffin.malm@duke.edu'),
   ('UNC1', 'Mohamed Salad', 'Msalad@uncc.edu'),
   ('xl253', 'Mike Liu', 'xinchen.liu@duke.edu'),
   ('UNC2', 'Sahithi Meduri', 'vesahithi@gmail.com'),
-  ('mw376', 'Michael Williams', 'michael.williams3@duke.edu');
+  ('mw376', 'Michael Williams', 'michael.williams3@duke.edu'),
+  ('munagala', 'Kamesh Munagala', 'munagala@duke.edu'),
+  ('vc15', 'Vincent Conitzer', 'vc15@duke.edu'),
+  ('amink', 'Alexander Hartemink', 'amink@duke.edu'),
+  ('ola', 'Owen Astrachan', 'ola@duke.edu'),
+  ('mp275', 'Miroslav Pajic', 'mp275@duke.edu'),
+  ('bcl15', 'Benjamin Lee', 'bcl15@duke.edu'),
+  ('alvy', 'Alvin Lebeck', 'alvy@duke.edu');
 
 INSERT INTO Student(netid, grad_year) VALUES
   ('gtm7', 2021),
@@ -25,8 +29,14 @@ INSERT INTO Student(netid, grad_year) VALUES
   ('emc44', 2019);
 
 INSERT INTO Professor(netid) VALUES
-  ('jk123'),
-  ('op69');
+  ('junyang'),
+  ('munagala'),
+  ('vc15'),
+  ('amink'),
+  ('ola'),
+  ('mp275'),
+  ('bcl15'),
+  ('alvy');
 
 INSERT INTO Project(pid, founder, name, status, description) VALUES
   (1, 'ban20', 'Fake News Detector', 'inactive', 'Detects fake news!'),
@@ -38,9 +48,7 @@ INSERT INTO Project(pid, founder, name, status, description) VALUES
   (7, 'UNC1', 'Lemma', 'active', 'A mobile app that allows professors and students the ability to record lectures and rewatch later with the added feature to translate audio to text so students can have notes handy');
 
 INSERT INTO Mentorship(pid, professor) VALUES
-  (1, 'op69'),
-  (2, 'op69'),
-  (3, 'jk123');
+  (3, 'junyang');
 
 INSERT INTO Meeting(pid, date, time, location) VALUES
   (1, '2018-05-17', '17:00', 'Perkins 123'),
@@ -50,7 +58,7 @@ INSERT INTO Meeting(pid, date, time, location) VALUES
 INSERT INTO Project_Order(pid, oid, date, total) VALUES
   (1, 1, '2018-01-21', 30),
   (2, 1, '2018-07-11', 10),
-  (2, 2, '2018-07-11', 2400);
+  (2, 2, '2018-07-13', 2400);
 
 INSERT INTO Order_Item(pid, oid, product_id, product_name, quantity, price)  VALUES
   (1, 1, 'agdwrgterwtgf', 'Robotic parts', 2, 15),
@@ -94,10 +102,22 @@ INSERT INTO Degree(student, type, name) VALUES
 
 
 INSERT INTO Specialization(professor, subject) VALUES
-  ('op69', 'economics'),
-  ('jk123', 'computer science');
+  ('junyang', 'computer science'),
+  ('munagala', 'theoretical computer science'),
+  ('vc15', 'computer science'),
+  ('vc15', 'economics'),
+  ('vc15', 'philosophy'),
+  ('amink', 'computer science'),
+  ('amink', 'philosophy'),
+  ('ola', 'computer science'),
+  ('mp275', 'computer science'),
+  ('mp275', 'electrical and computer engineering'),
+  ('bcl15', 'computer science'),
+  ('bcl15', 'electrical and computer engineering'),
+  ('alvy', 'computer science'),
+  ('alvy', 'electrical and computer engineering');
 
-INSERT INTO Member(pid, netid) VALUES
+INSERT INTO Member(netid, pid) VALUES
   ('jql3', 1),
   ('sf197', 1),
   ('emc44', 2),
@@ -109,4 +129,3 @@ INSERT INTO Member(pid, netid) VALUES
   ('UNC2', 5),
   ('xl253', 6),
   ('gtm7', 4);
-
