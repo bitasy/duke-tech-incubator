@@ -1,1 +1,1 @@
-nohup sudo PORT=80 DEBUG=dti:* npm run devstart &
+nohup sudo PORT=80 DEBUG=dti:* npm start &> server.log&

@@ -1,0 +1,17 @@
+
+> dti@0.0.0 start /var/www/dti
+> node ./bin/www
+
+Tue, 27 Nov 2018 04:19:37 GMT dti:server Listening on port 80
+[0mGET / [36m304 [0m109.016 ms - -[0m
+[0mGET /stylesheets/style.css [36m304 [0m2.386 ms - -[0m
+[0mGET /stylesheets/table.css [36m304 [0m2.135 ms - -[0m
+[0mGET /addproject [32m200 [0m6.978 ms - 3463[0m
+[0mGET /stylesheets/style.css [36m304 [0m0.480 ms - -[0m
+[0mGET /stylesheets/table.css [36m304 [0m0.444 ms - -[0m
+[0mPOST /post/project [32m200 [0m22.928 ms - 2073[0m
+[0mGET /stylesheets/style.css [36m304 [0m0.849 ms - -[0m
+[0mGET /stylesheets/table.css [36m304 [0m0.608 ms - -[0m
+[0mGET / [32m200 [0m7.313 ms - 3728[0m
+[0mGET /stylesheets/style.css [36m304 [0m0.729 ms - -[0m
+[0mGET /stylesheets/table.css [36m304 [0m0.561 ms - -[0m

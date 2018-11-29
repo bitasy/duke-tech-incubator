@@ -8,6 +8,7 @@ var hbs = require('express-handlebars');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var projectRouter = require('./routes/project');
+var formsRouter = require('./routes/forms');
 
 var app = express();
 
@@ -21,13 +22,14 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.urlencoded( {extended: true} ));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/project', projectRouter);
+app.use('/post', formsRouter);
 
 app.use(express.static('public'));
-app.use(express.static('views')); //THIS MUST BE CHANGED ONCE WE CREATE PROPER HBS FILES
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
