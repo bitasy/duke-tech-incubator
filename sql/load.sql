@@ -62,3 +62,12 @@ INSERT INTO Specialization(professor, subject) VALUES
   ('op69', 'economics'),
   ('jk123', 'computer science');
 
+INSERT INTO Member(pid, netid) VALUES
+  ('jql3', 1),
+  ('sf197', 1),
+  ('emc44', 2),
+  ('ban20', 2),
+  ('emc44', 3),
+  ('ban20', 3),
+  ('jql3', 3);
+

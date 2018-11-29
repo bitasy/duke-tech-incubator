@@ -1,0 +1,11 @@
+<h1>{{title}}</h1>
+<p>Welcome to {{title}}</p>
+
+<table style="border: 1px solid black">
+    {{#each projects}}
+        <tr>
+            <td>{{this.name}}</td>
+            <td>{{this.description}}</td>
+        </tr>
+    {{/each}}
+</table>
