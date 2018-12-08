@@ -3,8 +3,8 @@ var Project = require("../models/project");
 exports.projects_by = function (req, res) {
     //res.send(req.params.netid);
 
-    Project.find("founder", req.params.netid, function (results) {
-        res.render("query", {title: req.params.netid + " Projects", founder: req.params.netid, results: results});
+    Project.find("name", req.params.name, function (results) {
+        res.render("query", {title: req.params.name + " Projects", founder: req.params.name, results: results});
     })
 };
 

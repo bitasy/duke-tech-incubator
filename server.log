@@ -1,5 +1,0 @@
-
-> dti@0.0.0 start /var/www/dti
-> node ./bin/www
-
-Tue, 27 Nov 2018 01:50:13 GMT dti:server Listening on port 80

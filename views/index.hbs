@@ -1,19 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#" height="40">Duke Tech Incubator</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar1" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbar1">
-        <ul class="navbar-nav m1-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/addproject"> Add Project </a>
-            </li>
-        </ul>
-    </div>
-</nav>
+
 <h1 id="bonk-header">Duke Tech Incubator</h1>
 <div class="search">
     <input type="text" name="search" placeholder="Search...">
@@ -22,14 +7,13 @@
 <h3 align="center">Projects</h3>
 <div id="constrainer2">
     <table style="border: 1px solid black">
-        <tr>
-            <th>Project Name</th>
-            <th>Project Description</th>
-        </tr>
-
         {{#each projects}}
         <tr>
-            <td>{{this.name}}</td>
+            <td>
+                <a href="/project/{{this.name}}">
+                    {{this.name}}
+                </a>
+            </td>
             <td>{{this.description}}</td>
         </tr>
         {{/each}}
