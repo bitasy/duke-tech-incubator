@@ -10,11 +10,11 @@ exports.find = function (col, val, callback) {
 
     connection.connect();
 
-    connection.query(`SELECT name, description from Project where ${col} = '${val}'`, function (error, results, fields) {
+    connection.query(`SELECT name, description, founder, status, pid from Project where ${col} = '${val}'`, function (error, results, fields) {
         if (error) throw error;
         var ret = [];
         for (var i in results){
-            ret.push({"name": results[i].name, "description": results[i].description});
+            ret.push({"name": results[i].name, "description": results[i].description, "founder": results[i].founder, "status": results[i].status, "pid": results[i].pid});
         }
 
         callback(ret);

@@ -7,6 +7,6 @@ router.get('/', function (req, res) {
     res.send("root of project")
 });
 
-router.get('/:netid', project_controller.projects_by);
+router.get('/:name', project_controller.projects_by);
 
 module.exports = router;
