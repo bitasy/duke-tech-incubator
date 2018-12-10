@@ -1,19 +1,12 @@
 var mysql = require('mysql');
+var run = require('./makeConnection').run;
 
 exports.find = function (col, val, callback) {
-    var connection = mysql.createConnection({
-        host     : 'localhost',
-        user     : 'dti',
-        password : 'incubator',
-        database : 'dti'
-    });
-
-    connection.connect();
-
     col = mysql.escapeId(col);
     val = mysql.escape(val);
 
-    connection.query(`SELECT name, description, founder, status, pid from Project where ${col} = ${val}`, function (error, results, fields) {
+    var query = `SELECT name, description, founder, status, pid from Project where ${col} = ${val}`;
+    var execute = function (error, results, fields) {
         if (error) throw error;
         var ret = [];
         for (var i in results){
@@ -21,23 +14,14 @@ exports.find = function (col, val, callback) {
         }
 
         callback(ret);
+    };
 
-    });
-
-    connection.end();
+    run(query, false, execute);
 };
 
 exports.all = function(callback){
-    var connection = mysql.createConnection({
-        host     : 'localhost',
-        user     : 'dti',
-        password : 'incubator',
-        database : 'dti'
-    });
-
-    connection.connect();
-
-    connection.query(`SELECT name, description from Project`, function (error, results, fields) {
+    var query = `SELECT name, description from Project`;
+    var execute = function (error, results, fields) {
         if (error) throw error;
         var ret = [];
         for (var i in results){
@@ -45,8 +29,7 @@ exports.all = function(callback){
         }
 
         callback(ret);
+    };
 
-    });
-
-    connection.end();
-}
+    run(query, false, execute);
+};

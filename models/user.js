@@ -1,21 +1,5 @@
 var mysql = require('mysql');
-
-function makeConnection(query, multiple, callback){
-
-    var connection = mysql.createConnection({
-        host     : 'localhost',
-        user     : 'dti',
-        password : 'incubator',
-        database : 'dti',
-        multipleStatements: multiple
-    });
-
-    connection.connect();
-
-    connection.query(query, callback);
-
-    connection.end();
-}
+var run = require('./makeConnection').run;
 
 exports.person = function (netid, callback) {
     netid = mysql.escape(netid);
@@ -27,7 +11,7 @@ exports.person = function (netid, callback) {
     };
 
 
-    makeConnection(query, false, execute);
+    run(query, false, execute);
 
 };
 
@@ -42,9 +26,9 @@ exports.student = function (netid, callback){
     var execute = function(error, results, fields){
         if (error) throw error;
         callback(results)
-    }
+    };
 
-    makeConnection(query, true, execute)
+    run(query, true, execute)
 };
 
 exports.professor = function (netid, callback){
@@ -58,7 +42,7 @@ exports.professor = function (netid, callback){
     var execute = function(error, results, fields){
         if (error) throw error;
         callback(results)
-    }
+    };
 
-    makeConnection(query, true, execute)
+    run(query, true, execute)
 };
