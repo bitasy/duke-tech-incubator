@@ -13,7 +13,7 @@ var router = express.Router();
 
 var form_controller = require('../controllers/formController');
 
-router.post('/project', form_controller.submit);
+router.post('/project', form_controller.submitProject);
 
-
+router.post('/profile', form_controller.submitProfile);
 module.exports = router;

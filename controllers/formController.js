@@ -1,11 +1,16 @@
-var Form = require("../models/forms");
+var Insert = require("../models/insert");
 
-exports.submit = function (req, res) {
-    Form.add(req.body, function(){
+exports.submitProject = function (req, res) {
+    Insert.project(req.body, function(){
         res.render("formsubmit");
     })
 };
 
+exports.submitProfile = function (req, res) {
+    Insert.profile(req.body, function(){
+        res.render("profile");
+    })
+};
 
 exports.add_project = function (req, res) {
     res.render("addproject", {title: "DTI"})

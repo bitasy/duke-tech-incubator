@@ -1,21 +1,29 @@
 
-<h1 id="bonk-header">Duke Tech Incubator</h1>
-<div class="search">
-    <input type="text" name="search" placeholder="Search...">
-</div>
+<head>
+    <script src="javascripts/searchbar.js"></script>
+</head>
 
-<h3 align="center">Projects</h3>
-<div id="constrainer2">
-    <table style="border: 1px solid black">
-        {{#each projects}}
-        <tr>
-            <td>
-                <a href="/project/{{this.name}}">
-                    {{this.name}}
-                </a>
-            </td>
-            <td>{{this.description}}</td>
-        </tr>
-        {{/each}}
-    </table>
-</div>
+<body>
+
+    <h1 id="bonk-header">Duke Tech Incubator</h1>
+    <div class="search">
+        <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search by name..">
+    </div>
+
+    <h3 align="center">Projects</h3>
+    <div id="constrainer2">
+        <table style="border: 1px solid black" id="myTable">
+            {{#each projects}}
+            <tr>
+                <td>
+                    <a href="/project/{{this.name}}">
+                        {{this.name}}
+                    </a>
+                </td>
+                <td>{{this.description}}</td>
+            </tr>
+            {{/each}}
+        </table>
+    </div>
+
+</body>
