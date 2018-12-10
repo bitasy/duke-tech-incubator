@@ -1,6 +1,6 @@
 var mysql = require('mysql');
 
-exports.add = function (form, callback) {
+exports.project = function (form, callback) {
     var connection = mysql.createConnection({
         host     : 'localhost',
         user     : 'dti',
@@ -10,20 +10,27 @@ exports.add = function (form, callback) {
 
     connection.connect();
 
+    //TODO: need to be escaped somehow
     var founder = form.founder;
+    founder = mysql.escape(founder);
     var name = form.name;
+    name = mysql.escape(name);
     var desc = form.description;
+    desc = mysql.escape(desc);
 
-    connection.query(`INSERT INTO Project(founder, name, status, description) VALUES ('${founder}', '${name}', 'pending', '${desc}')`,
+    console.log('one' + founder + name + desc);
+
+    connection.query(`INSERT INTO Project(founder, name, status, description) VALUES (${founder}, ${name}, 'pending', ${desc})`,
         function (error, results, fields) {
-            if (error) throw error;
+            if (error) console.log(error);
+            console.log('two' + founder + name + desc);
             callback();
         });
 
     connection.end();
 };
 
-exports.show = function (form, callback) {
+exports.profile = function (form, callback) {
     var connection = mysql.createConnection({
         host     : 'localhost',
         user     : 'dti',
@@ -33,11 +40,14 @@ exports.show = function (form, callback) {
 
     connection.connect();
 
-    var founder = form.founder;
+    var netID = form.netid;
+    netID = mysql.escape(netID);
     var name = form.name;
-    var desc = form.description;
+    name = mysql.escape(name);
+    var email = form.email;
+    email = mysql.escape(email);
 
-    connection.query(`INSERT INTO Project(founder, name, status, description) VALUES ('${founder}', '${name}', 'pending', '${desc}')`,
+    connection.query(`INSERT INTO Person(netid, name, email) VALUES (${netID}, ${name}, ${email})`,
         function (error, results, fields) {
             if (error) throw error;
             callback();
