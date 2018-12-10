@@ -10,6 +10,9 @@ exports.find = function (col, val, callback) {
 
     connection.connect();
 
+    col = mysql.escape(col);
+    val = mysql.escape(val);
+
     connection.query(`SELECT name, description, founder, status, pid from Project where ${col} = '${val}'`, function (error, results, fields) {
         if (error) throw error;
         var ret = [];
