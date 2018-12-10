@@ -1,0 +1,14 @@
+<h1>
+    {{info.name}}
+</h1>
+
+{{#each degrees}}
+    <p>
+        {{this.name}}
+    </p>
+    <p>
+        {{this.type}}
+    </p>
+{{/each}}
+
+{{> projectTable }}

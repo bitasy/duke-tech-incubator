@@ -19,11 +19,15 @@ exports.load_netid = function (req, res) {
         console.log(info);
 
         if(info.role === "Student"){
-            // load data from student and project table
+            User.student(netid, function (data) {
+                res.render("studentProfile",
+                    {title: "DTI - " + info.name, info: info, degrees: data[1], projects: data[2]})
+            })
         } else if(info.role === "Professor"){
-            // load data from professor, mentorship, and project table
+            User.professor(netid, function (data) {
+                res.render("professorProfile",
+                    {title: "DTI - " + info.name, info: info, specializations: data[1], projects: data[2]})
+            })
         }
-
-        res.render('userprofile', {title: "DTI - " + info.netid})//+ results['name'], info: info})
     })
 };
