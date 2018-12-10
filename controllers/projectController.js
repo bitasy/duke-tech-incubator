@@ -4,8 +4,8 @@ var Project = require("../models/project");
 
 exports.project_search = function (name) {
     return function(req, res) {
-        Project.find(name, req.params.name, function (results) {
-            res.render("query", {title: req.params.name + " Projects", founder: req.params.name, results: results});
+        Project.find(name, req.params.name, function (projects) {
+            res.render("query", {title: req.params.name + " Projects", founder: req.params.name, projects: projects});
         })
     }
 };

@@ -10,7 +10,6 @@ exports.project = function (form, callback) {
 
     connection.connect();
 
-    //TODO: need to be escaped somehow
     var founder = form.founder;
     founder = mysql.escape(founder);
     var name = form.name;
@@ -47,7 +46,8 @@ exports.profile = function (form, callback) {
     var email = form.email;
     email = mysql.escape(email);
 
-    connection.query(`INSERT INTO Person(netid, name, email) VALUES (${netID}, ${name}, ${email})`,
+    //TODO: Remove hardcoded student insert
+    connection.query(`INSERT INTO Person(netid, name, email, role) VALUES (${netID}, ${name}, ${email}, 'Student')`,
         function (error, results, fields) {
             if (error) throw error;
             callback();
