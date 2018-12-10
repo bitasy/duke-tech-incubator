@@ -1,9 +1,8 @@
 var express = require('express');
 var router = express.Router();
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
-});
+var project_controller = require('../controllers/projectController');
+
+router.get('/:name', project_controller.project_search("founder"));
 
 module.exports = router;
