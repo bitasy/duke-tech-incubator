@@ -1,9 +1,13 @@
 var express = require('express');
 var router = express.Router();
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
-});
+
+var project_controller = require('../controllers/projectController');
+var profile_controller = require('../controllers/profileController');
+
+
+router.post('/', profile_controller.load_netid);
+
+router.post('/:netid', profile_controller.load_netid);
 
 module.exports = router;
