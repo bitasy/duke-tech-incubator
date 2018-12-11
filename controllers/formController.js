@@ -19,8 +19,6 @@ exports.submitProfile = function (req, res) {
 
 exports.edit = function (req, res) {
     Insert.edit(req.body, function(error){
-
-
         if(error){
             res.render("error", {title: "DTI ERROR", message: "Sorry! There's an error with your form.",
                 detail: "If you haven't registered your account yet, do that first by clicking Create Profile! " +
