@@ -12,7 +12,7 @@ exports.project = function (form, callback) {
     var query = `INSERT INTO Project(founder, name, status, description) VALUES (${founder}, ${name}, 'pending', ${desc})`;
     var execute = function (error, results, fields) {
         if (error) console.log(error);
-        callback();
+        callback(error);
     };
 
     run(query, false, execute);
@@ -27,9 +27,23 @@ exports.profile = function (form, callback) {
     email = mysql.escape(email);
 
     var query = `INSERT INTO Person(netid, name, email, role) VALUES (${netID}, ${name}, ${email}, 'Student')`;
+    var execute = function (error) {
+        if (error) console.log(error);
+        callback(error);
+    };
+
+    run(query, false, execute);
+};
+
+exports.join = function (form, callback) {
+    var netID = form.netID;
+    netID = mysql.escape(netID);
+    var pid = form.pid;
+
+    var query = `INSERT IGNORE INTO Member(pid, netid) VALUES ${pid}, ${netID}`;
     var execute = function (error, results, fields) {
-        if (error) throw error;
-        callback();
+        if (error) console.log(error);
+        callback(error);
     };
 
     run(query, false, execute);
