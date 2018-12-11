@@ -76,3 +76,63 @@ exports.edit = function (form, callback) {
 
     run(query, false, execute);
 };
+
+function lookup(order){
+    if(order == "Apple Developer Kit")
+        return 150;
+    else if(order == "GitHub Developer Pack")
+        return 100;
+    else
+        return 0;
+};
+
+exports.order = function (products, callback) {
+    //query to set unique OID
+    var query = `SELECT MAX(oid) AS oid FROM Order_Detail;`;
+
+    //insert queries for when orders exist
+    for(var i = 0; i < products.length; i++)
+        query = query + `SELECT product_id, price FROM Product WHERE name=${mysql.escape(products[i])};`
+
+    var execute = function (error, results, fields) {
+        console.log("results are");
+        console.log(results);
+        if (error) console.log(error);
+
+        callback(error, results);
+    };
+
+    run(query, true, execute);
+};
+
+exports.orderInsert = function(oid, form, products, quantites, callback){
+    // insert order, pid, date into project order
+    // insert order, pid, products, quantity into detail
+
+    var total = 0;
+    for (var p = 0; p < products.length; p++){
+        total += products[p][0]['price'] * quantites[p];
+    }
+
+    var pid = form.pid;
+    pid = mysql.escape(pid);
+
+    var date = form.date;
+    date = mysql.escape(date);
+
+    var query = `INSERT INTO Project_Order(pid, oid, date, total)
+            VALUES (${pid}, ${oid}, ${date}, ${total});`;
+
+    for (var prod = 0; prod < products.length; prod++){
+        query = query + `INSERT INTO Order_Detail(oid, pid, product_id, quantity)
+            VALUES (${oid}, ${pid}, ${products[prod][0]['product_id']}, ${quantites[prod]});`;
+    }
+
+    console.log(query);
+    var execute = function (error, results, fields){
+        if(error) console.log(error);
+        callback(error);
+    };
+
+    run(query, true, execute);
+};

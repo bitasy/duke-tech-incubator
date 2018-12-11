@@ -1,0 +1,59 @@
+
+<h1 id="bonk-header">Add An Order</h1>
+<div class="divider">
+    <p id="description"> Want to order something for your project? </p>
+    <form id="project-submit" action="/post/order" method="post">
+        <div class="form-group">
+            <label for="pid">Project ID</label>
+            <input type="number" id="pid" placeholder="ID Number" name="pid">
+        </div>
+        <div class="form-group">
+            <label for="date">Today's Date</label>
+            <input type="date" name="date">
+        </div>
+        <div class="form-group">
+            <label for="sel1">Select list:</label>
+                <select class="form-control" id="sel1" name="sel1">
+                    <option disabled selected value="empty"> -- select an option -- </option>
+                    <option>Apple Developer Kit</option>
+                    <option>GitHub Developer Pack</option>
+                    <option>Arduino</option>
+                    <option>Circuit Board</option>
+                </select>
+        </div>
+        <div class="col-xs-2 form-group">
+            <label for="q1">Quantity</label>
+            <input id="q1" name="q1" type="number">
+        </div>
+        <div class="form-group">
+            <label for="sel2">Select list:</label>
+                <select class="form-control" id="sel2" name="sel2">
+                    <option disabled selected value="empty"> -- select an option -- </option>
+                    <option>Apple Developer Kit</option>
+                    <option>GitHub Developer Pack</option>
+                    <option>Arduino</option>
+                    <option>Circuit Board</option>
+                </select>
+        </div>
+        <div class="col-xs-2 form-group">
+            <label for="q2">Quantity</label>
+            <input id="q2" name="q2" type="number">
+        </div>
+        <div class="form-group">
+            <label for="sel3">Select list:</label>
+                <select class="form-control" id="sel3" name="sel3">
+                    <option disabled selected value="empty"> -- select an option -- </option>
+                    <option>Apple Developer Kit</option>
+                    <option>GitHub Developer Pack</option>
+                    <option>Arduino</option>
+                    <option>Circuit Board</option>
+                </select>
+        </div>
+        <div class="col-xs-2 form-group">
+            <label for="q3">Quantity</label>
+            <input id="q3" name="q3" type="number">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>

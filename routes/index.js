@@ -14,6 +14,10 @@ router.get('/addprofile', function (req, res) {
     res.render("addprofile", {title: "DTI - Create Profile", add_profile: true})
 });
 
+router.get('/order', function (req, res) {
+    res.render("orderinput", {title: "DTI - Place an Order", order: true})
+});
+
 router.get('/search', function (req, res){
     res.render("advancedSearch", {title: "DTI - Advanced Search"})
 });
