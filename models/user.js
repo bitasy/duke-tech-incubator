@@ -6,7 +6,12 @@ exports.person = function (netid, callback) {
 
     var query = `SELECT * FROM Person WHERE netid = ${netid}`;
     var execute = function (error, results, fields) {
-        if (error) console.log(error);
+        if (error) {
+            console.log("here is an error");
+            console.log(error);
+        }
+        console.log("here is results");
+        console.log(results[0]);
         callback(error, results[0]);
     };
 

@@ -26,13 +26,21 @@ exports.profile = function (form, callback) {
     var email = form.email;
     email = mysql.escape(email);
 
-    var query = `INSERT INTO Person(netid, name, email, role) VALUES (${netID}, ${name}, ${email}, 'Student')`;
-    var execute = function (error) {
-        if (error) console.log(error);
-        callback(error);
-    };
+    console.log(netID.length);
 
-    run(query, false, execute);
+    if ((netID.length>2) && (name.length>2) && (email.length>2)) {
+        var query = `INSERT INTO Person(netid, name, email, role) VALUES (${netID}, ${name}, ${email}, 'Student')`;
+        var execute = function (error) {
+            if (error) console.log(error);
+            callback(error);
+        };
+
+        run(query, false, execute);
+    }
+    else {
+        //alert("Cannot submit empty netID, name, or email");
+        callback(error);
+    }
 };
 
 exports.join = function (form, callback) {
