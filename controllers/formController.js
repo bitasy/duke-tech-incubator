@@ -12,6 +12,12 @@ exports.submitProfile = function (req, res) {
     })
 };
 
+exports.edit = function (req, res) {
+    Insert.edit(req.body, function(){
+        res.render("edit");
+    })
+};
+
 exports.add_project = function (req, res) {
     res.render("addproject", {title: "DTI"})
 };
