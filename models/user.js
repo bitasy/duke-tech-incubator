@@ -6,8 +6,13 @@ exports.person = function (netid, callback) {
 
     var query = `SELECT * FROM Person WHERE netid = ${netid}`;
     var execute = function (error, results, fields) {
-        if (error) throw error;
-        callback(results[0]);
+        if (error) {
+            console.log("here is an error");
+            console.log(error);
+        }
+        console.log("here is results");
+        console.log(results[0]);
+        callback(error, results[0]);
     };
 
 
@@ -24,8 +29,8 @@ exports.student = function (netid, callback){
         SELECT * FROM Project WHERE pid IN (SELECT pid FROM Member WHERE netid = ${netid})`;
 
     var execute = function(error, results, fields){
-        if (error) throw error;
-        callback(results)
+        if (error) console.log(error);
+        callback(error, results)
     };
 
     run(query, true, execute)
@@ -40,7 +45,7 @@ exports.professor = function (netid, callback){
         SELECT * FROM Project WHERE pid IN (SELECT pid FROM Mentorship WHERE professor = ${netid})`;
 
     var execute = function(error, results, fields){
-        if (error) throw error;
+        if (error) console.log(error);
         callback(results)
     };
 

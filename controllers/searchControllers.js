@@ -28,8 +28,13 @@ exports.advanced_search = function(req, res){
         criteria.status = req.body.status;
     }
 
-    Project.search(criteria, function (projects) {
-        res.render("projectList", {title: "DTI - Projects", projects: projects});
+    Project.search(criteria, function (error, projects) {
+        if(error){
+            res.render("error", {title: "DTI ERROR", message: "Sorry! There's an error with your search.",
+                detail: "Make sure you're searching for valid things!",
+                status: error.sqlMessage})
+        } else {
+            res.render("projectList", {title: "DTI - Projects", projects: projects});
+        }
     });
-
 };

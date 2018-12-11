@@ -73,7 +73,13 @@ exports.add_project = function (req, res) {
 };
 
 exports.all = function (req, res) {
-    Project.all(function (projects) {
-        res.render("index", {title: "DTI", home: true, projects: projects})
+    Project.all(function (error, projects) {
+        if(error){
+            res.render("error", {title: "DTI ERROR", message: "Sorry! There's an error with your query.",
+                detail: "Make sure you're selecting a valid Project and valid associated fields.",
+                status: error.sqlMessage})
+        } else {
+            res.render("index", {title: "DTI", home: true, projects: projects})
+        }
     })
 };

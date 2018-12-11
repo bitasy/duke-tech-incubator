@@ -99,8 +99,8 @@ exports.search = function(criteria, callback){
 
     var query = `SELECT * FROM Project WHERE ${conditions}`;
     var execute = function(error, results, fields){
-        if (error) throw error;
-        callback(results);
+        if (error) console.log(error);
+        callback(error, results);
     };
 
     run(query, false, execute);
@@ -110,13 +110,13 @@ exports.search = function(criteria, callback){
 exports.all = function(callback){
     var query = `SELECT name, description, pid from Project`;
     var execute = function (error, results, fields) {
-        if (error) throw error;
+        if (error) console.log(error);
         var ret = [];
         for (var i in results){
             ret.push({"name": results[i].name, "description": results[i].description, "pid": results[i].pid});
         }
 
-        callback(ret);
+        callback(error, ret);
     };
 
     run(query, false, execute);
