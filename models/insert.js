@@ -10,13 +10,31 @@ exports.project = function (form, callback) {
     desc = mysql.escape(desc);
 
     var query = `INSERT INTO Project(founder, name, status, description) VALUES (${founder}, ${name}, 'pending', ${desc})`;
+
     var execute = function (error, results, fields) {
         if (error) console.log(error);
-        callback(error);
+        callback(error, results);
     };
 
     run(query, false, execute);
 };
+
+exports.tag = function(pid, tags, callback){
+    tags = tags.split(",");
+
+    var query = ``;
+    for (var t = 0; t < tags.length; t++){
+        var tag = mysql.escape(tags[t].trim());
+        query += `INSERT INTO Tag(pid, tag) VALUES (${pid}, ${tag});`;
+    }
+
+    var execute = function(error, results, fields){
+        if (error) console.log(error);
+        callback(error);
+    };
+
+    run(query, true, execute);
+}
 
 exports.profile = function (form, callback) {
     var netID = form.netid;
@@ -83,15 +101,6 @@ exports.edit = function (form, callback) {
     };
 
     run(query, false, execute);
-};
-
-function lookup(order){
-    if(order == "Apple Developer Kit")
-        return 150;
-    else if(order == "GitHub Developer Pack")
-        return 100;
-    else
-        return 0;
 };
 
 exports.order = function (products, callback) {
