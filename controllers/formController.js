@@ -18,8 +18,17 @@ exports.submitProfile = function (req, res) {
 };
 
 exports.edit = function (req, res) {
-    Insert.edit(req.body, function(){
-        res.render("edit");
+    Insert.edit(req.body, function(error){
+
+
+        if(error){
+            res.render("error", {title: "DTI ERROR", message: "Sorry! There's an error with your form.",
+                detail: "If you haven't registered your account yet, do that first by clicking Create Profile! " +
+                    "Alternatively, if you have registered your account, make sure you're not already part of this project.",
+                status: error.sqlMessage})
+        } else {
+            res.render("edit");
+        }
     })
 };
 

@@ -29,7 +29,7 @@ exports.advanced_search = function(req, res){
     }
 
     Project.search(criteria, function (projects) {
-        res.render("query", {name: "Results", projects: projects});
+        res.render("projectList", {title: "DTI - Projects", projects: projects});
     });
 
 };

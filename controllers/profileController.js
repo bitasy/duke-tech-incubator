@@ -16,7 +16,6 @@ exports.add = function (req, res) {
 exports.load_netid = function (req, res) {
     var netid = "netid" in req.params ? req.params.netid : req.body.netid;
     User.person(netid, function (info) {
-        console.log(info);
 
         if(info.role === "Student"){
             User.student(netid, function (data) {

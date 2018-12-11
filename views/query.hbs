@@ -1,8 +1,31 @@
-<h1 id="name">{{name}}</h1>
+<h1 id="name">{{project.name}}</h1>
 <br />
 
 {{> projectTable }}
 
+<div class="accordion my-3" id="orders">
+    {{#each orders}}
+        <div class="card">
+            <div class="card-header" id="head{{@key}}">
+                <h5 class="mb-0">
+                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse{{@key}}" aria-expanded="true" aria-controls="collapse{{@key}}">
+                        Order #{{@key}}
+                    </button>
+                </h5>
+            </div>
+
+            <div id="collapse{{@key}}" class="collapse show" aria-labelledby="heading{{@key}}" data-parent="#orders">
+                <div class="card-body">
+                    <ul>
+                        {{#each this}}
+                            <li>{{name}}: {{quantity}}</li>
+                        {{/each}}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    {{/each}}
+</div>
 
 <form id="project-submit" action="/post/edit" method="post">
     <input type="text" style="display:none;" name="pid" value="{{projects.[0].pid}}" readonly>

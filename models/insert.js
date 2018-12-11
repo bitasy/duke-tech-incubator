@@ -70,8 +70,8 @@ exports.edit = function (form, callback) {
     }
 
     var execute = function (error, results, fields) {
-        if (error) throw error;
-        callback();
+        if (error) console.log(error);
+        callback(error);
     };
 
     run(query, false, execute);
