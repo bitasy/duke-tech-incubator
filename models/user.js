@@ -46,7 +46,9 @@ exports.professor = function (netid, callback){
 
     var execute = function(error, results, fields){
         if (error) console.log(error);
-        callback(results)
+        console.log("look here for results");
+        console.log(results);
+        callback(error, results)
     };
 
     run(query, true, execute)
