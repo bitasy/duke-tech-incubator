@@ -1,4 +1,49 @@
-<h1>{{name}}</h1>
+<h1 id="name">{{project.name}}</h1>
 <br />
 
 {{> projectTable }}
+
+<div class="accordion my-3" id="orders">
+    {{#each orders}}
+        <div class="card">
+            <div class="card-header" id="head{{@key}}">
+                <h5 class="mb-0">
+                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse{{@key}}" aria-expanded="true" aria-controls="collapse{{@key}}">
+                        Order #{{@key}}
+                    </button>
+                </h5>
+            </div>
+
+            <div id="collapse{{@key}}" class="collapse show" aria-labelledby="heading{{@key}}" data-parent="#orders">
+                <div class="card-body">
+                    <ul>
+                        {{#each this}}
+                            <li>{{name}}: {{quantity}}</li>
+                        {{/each}}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    {{/each}}
+</div>
+
+<form id="project-submit" action="/post/edit" method="post">
+    <input type="text" style="display:none;" name="pid" value="{{projects.[0].pid}}" readonly>
+    <textarea rows="2" cols="50" name="newText">Put the new name or description here</textarea>
+    <select name="which">
+        <option value="Name">Project Name</option>
+        <option value="Description">Description</option>
+    </select>
+    <button type="submit" class="btn btn-primary">Edit Project</button>
+</form>
+
+<div>
+    <form id="project-submit" action="/post/join" method="post">
+        <div class="form-group">
+            <label for="netID">Enter NetID</label>
+            <input type="text" class="form-control" id="netID" placeholder="netID" name="netID">
+            <input type="text" style="display:none;" name="pid" value="{{projects.[0].pid}}">
+        </div>
+    <button type="submit" class="btn btn-primary">Join This Project!</button>
+    </form>
+</div>
