@@ -2,3 +2,14 @@
 <br />
 
 {{> projectTable }}
+
+<div>
+    <form id="project-submit" action="/post/join" method="post">
+        <div class="form-group">
+            <label for="netID">Enter NetID</label>
+            <input type="text" class="form-control" id="netID" placeholder="netID" name="netID">
+            <input type="text" style="display:none;" name="pid" value="{{projects.[0].pid}}">
+        </div>
+    <button type="submit" class="btn btn-primary">Join This Project!</button>
+    </form>
+</div>
