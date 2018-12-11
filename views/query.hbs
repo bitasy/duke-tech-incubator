@@ -1,4 +1,19 @@
-<h1>{{name}}</h1>
+<h1 id="name">{{name}}</h1>
 <br />
 
 {{> projectTable }}
+
+
+<form id="project-submit" action="/post/edit" method="post">
+    <input type="text" style="display:none;" name="pid" value="{{projects.[0].pid}}" readonly>
+    <textarea rows="2" cols="50" name="newText">Put the new name or description here</textarea>
+    <select name="which">
+        <option value="Name">Project Name</option>
+        <option value="Description">Description</option>
+    </select>
+    <button type="submit" class="btn btn-primary">Edit Project</button>
+</form>
+
+<script>
+
+</script>

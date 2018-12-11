@@ -34,3 +34,31 @@ exports.profile = function (form, callback) {
 
     run(query, false, execute);
 };
+
+exports.edit = function (form, callback) {
+    var which = form.which;
+    var newText = form.newText;
+    newText = mysql.escape(newText);
+    var pid = form.pid;
+    pid = mysql.escape(pid);
+
+
+    if (which !== undefined && which === 'Name'){
+        which = mysql.escape(which);
+        console.log("ENTERING THE IF STATEMENT");
+        var query = `UPDATE Project SET name = ${newText} WHERE pid = ${pid}`;
+        console.log("PRINTING THE QUERY NOW");
+        console.log(query);
+    }
+    else if (which !== undefined && which === 'Description'){
+        which = mysql.escape(which);
+        var query = `UPDATE Project SET description = ${newText} WHERE pid = ${pid}`;
+    }
+
+    var execute = function (error, results, fields) {
+        if (error) throw error;
+        callback();
+    };
+
+    run(query, false, execute);
+};
