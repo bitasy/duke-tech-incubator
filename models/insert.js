@@ -86,74 +86,53 @@ function lookup(order){
         return 0;
 };
 
-exports.order = function (form, callback) {
-    //parse orders from form
-    var ord1 = form.sel1;
-    ord1 = mysql.escape(ord1);
-    var ord2 = form.sel2;
-    ord2 = mysql.escape(ord2);
-    var ord3 = form.sel3;
-    ord3 = mysql.escape(ord3);
-
+exports.order = function (products, callback) {
     //query to set unique OID
-    var query = `SELECT MAX(oid) FROM Order_Detail;`;
+    var query = `SELECT MAX(oid) AS oid FROM Order_Detail;`;
 
     //insert queries for when orders exist
-    if(ord1!==null){
-        query = query + `SELECT product_id, price FROM Product WHERE name=${ord1};`
-    }
-    if(ord2!==null){
-        query = query + `SELECT product_id, price FROM Product WHERE name=${ord2};`;
-    }
-    if(ord3!==null){
-        query = query + `SELECT product_id, price FROM Product WHERE name=${ord3};`;
-    }
-
-    console.log("query is");
-    console.log(query);
+    for(var i = 0; i < products.length; i++)
+        query = query + `SELECT product_id, price FROM Product WHERE name=${mysql.escape(products[i])};`
 
     var execute = function (error, results, fields) {
         console.log("results are");
         console.log(results);
         if (error) console.log(error);
 
-        //this is my point of confusion: we need to insert up to results 1,2,3, but all could be optional - how to make params optional?
-        callback(error, results[0], results[1]);
+        callback(error, results);
     };
 
     run(query, true, execute);
 };
 
-exports.orderInsert = function(oid, prices, form, callback){
+exports.orderInsert = function(oid, form, products, quantites, callback){
+    // insert order, pid, date into project order
+    // insert order, pid, products, quantity into detail
+
+    var total = 0;
+    for (var p = 0; p < products.length; p++){
+        total += products[p][0]['price'] * quantites[p];
+    }
+
     var pid = form.pid;
     pid = mysql.escape(pid);
+
     var date = form.date;
+    date = mysql.escape(date);
 
-    var ord1 = form.sel1;
-    ord1 = mysql.escape(ord1);
-    var q1 = form.q1;
-    q1 = mysql.escape(q1);
+    var query = `INSERT INTO Project_Order(pid, oid, date, total)
+            VALUES (${pid}, ${oid}, ${date}, ${total});`;
 
-    var ord2 = form.sel2;
-    ord2 = mysql.escape(ord2);
-    var q2 = form.q2;
-    q2 = mysql.escape(q2);
-
-    var ord3 = form.sel3;
-    ord3 = mysql.escape(ord3);
-    var q3 = form.q3;
-    q3 = mysql.escape(q3);
-
-    var arr = [{"ord": ord1,"q": q1}, {"ord": ord2, "q": q2}, {"ord": ord3, "q": q3}]
-    for (item = 0; item < arr.length; item++){
-        if(arr[0][item] !== NULL){
-            query = query + `INSERT INTO Order_Detail(oid, pid, quantity)
-            VALUES (oid, ${pid}, arr[item].q))`;
-
-            query = query + `INSERT INTO Project_Order(pid, oid, date, total)
-            VALUES (${pid}, oid, ${date}, ototal)`;
-            console.log("this is query");
-            console.log(query);
-        }
+    for (var prod = 0; prod < products.length; prod++){
+        query = query + `INSERT INTO Order_Detail(oid, pid, product_id, quantity)
+            VALUES (${oid}, ${pid}, ${products[prod][0]['product_id']}, ${quantites[prod]});`;
     }
+
+    console.log(query);
+    var execute = function (error, results, fields){
+        if(error) console.log(error);
+        callback(error);
+    };
+
+    run(query, true, execute);
 };
