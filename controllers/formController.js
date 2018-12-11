@@ -1,13 +1,24 @@
 var Insert = require("../models/insert");
 
 exports.submitProject = function (req, res) {
-    Insert.project(req.body, function(error){
+    Insert.project(req.body, function(error, pid){
         if(error){
             res.render("error", {title: "DTI ERROR", message: "Sorry! There's an error with your form.",
                 detail: "If you haven't registered your account yet, do that first by clicking Create Profile!",
                 status: error.sqlMessage})
-        } else
-            res.render("formsubmit", {title: "DTI"});
+        } else {
+            Insert.tags(req.body.tags, pid, function(){
+                if(error) {
+                    res.render("error", {
+                        title: "DTI ERROR", message: "Sorry! There's an error with your form.",
+                        detail: "If you haven't registered your account yet, do that first by clicking Create Profile!",
+                        status: error.sqlMessage
+                    })
+                } else {
+                    res.render("formsubmit", {title: "DTI"});
+                }
+            })
+        }
     })
 };
 

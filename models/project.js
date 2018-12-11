@@ -18,7 +18,6 @@ exports.find = function (col, val, callback) {
         //string of members
         var mem = "";
         for (var i in results[1]){
-            console.log("here, " + i);
             mem = mem + results[1][i].name + ", ";
             console.log(mem);
         }

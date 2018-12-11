@@ -8,16 +8,39 @@ exports.project = function (form, callback) {
     name = mysql.escape(name);
     var desc = form.description;
     desc = mysql.escape(desc);
+    //trim in searchcontrollers
+    //join('');
+
 
     var query = `INSERT INTO Project(founder, name, status, description) VALUES (${founder}, ${name}, 'pending', ${desc})`;
     var execute = function (error, results, fields) {
         if (error) console.log(error);
+        callback(error, results.insertId);
+    };
+
+    run(query, true, execute);
+};
+
+exports.tags = function(tags, pid, callback){
+    tag = tags.split(',');
+    var str = '';
+    console.log("here is tag array");
+    console.log(tag);
+
+    for (var t in tag){
+        str = str + `INSERT INTO Tag(pid, tag) VALUES (${pid}, ${t});`;
+        console.log("here is tag for " + t);
+        console.log(str);
+    }
+    var query = str;
+
+    var execute = function (error) {
+        if (error) console.log(error);
         callback(error);
     };
 
-    run(query, false, execute);
-};
-
+    run(query, true, execute);
+}
 exports.profile = function (form, callback) {
     var netID = form.netid;
     netID = mysql.escape(netID);
