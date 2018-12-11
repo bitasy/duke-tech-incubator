@@ -40,3 +40,29 @@ exports.add_project = function (req, res) {
     res.render("addproject", {title: "DTI"})
 };
 
+exports.placeOrder = function (req, res) {
+    Insert.order(req.body, function(error, oid, prices) {
+        if (error) {
+            res.render("error", {
+                title: "DTI ERROR", message: "Sorry! There's an error with your form.",
+                detail: "If you haven't registered your account yet, do that first by clicking Create Profile! " +
+                    "Alternatively, if you have registered your account, make sure you're not already part of this project.",
+                status: error.sqlMessage
+            })
+        } else {
+            //once maxOID obtained, insert new order into project_order / order_detail
+            Insert.orderInsert(oid, prices, req.body, function(error){
+                if (error) {
+                    res.render("error", {
+                        title: "DTI ERROR", message: "Sorry! There's an error with your form.",
+                        detail: "If you haven't registered your account yet, do that first by clicking Create Profile! " +
+                            "Alternatively, if you have registered your account, make sure you're not already part of this project.",
+                        status: error.sqlMessage
+                    })
+                } else {
+                    res.render("formsubmit", {title: "DTI"});
+                }
+            })
+        }
+    })
+}
