@@ -11,6 +11,8 @@
     </p>
 {{/each}}
 
-{{> projectTable }}
+{{#each projects}}
+    {{> projectTable project=this}}
+{{/each}}
 
 <a href="/">Back to DTI</a>

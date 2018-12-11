@@ -66,7 +66,8 @@ exports.join = function (form, callback) {
     netID = mysql.escape(netID);
     var pid = form.pid;
 
-    var query = `INSERT IGNORE INTO Member(pid, netid) VALUES ${pid}, ${netID}`;
+    var query = `INSERT IGNORE INTO Member(pid, netid) VALUES(${pid}, ${netID})`;
+    console.log(query);
     var execute = function (error, results, fields) {
         if (error) console.log(error);
         callback(error);
